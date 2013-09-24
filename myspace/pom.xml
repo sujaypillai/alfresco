@@ -8,7 +8,47 @@
     <name>myspace AMP project</name>
     <packaging>amp</packaging>
     <description>Manages the lifecycle of the myspace AMP (Alfresco Module Package)</description>
-
+    <build>
+      <pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.m2e</groupId>
+            <artifactId>lifecycle-mapping</artifactId>
+            <version>1.0.0</version>
+            <configuration>
+              <lifecycleMappingMetadata>
+                <pluginExecutions>
+                  <pluginExecution>
+                    <pluginExecutionFilter>
+                      <groupId>org.alfresco.maven.plugin</groupId>
+                      <artifactId>alfresco-maven-plugin</artifactId>
+                      <versionRange>[0.0.0,)</versionRange>
+                      <goals>
+                        <goal>set-version</goal>
+                      </goals>
+                    </pluginExecutionFilter>
+                    <action>
+                      <execute>
+                        <runOnIncremental>false</runOnIncremental>
+                      </execute>
+                    </action>
+                  </pluginExecution>
+                </pluginExecutions>
+              </lifecycleMappingMetadata>
+            </configuration>
+          </plugin>
+          <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-compiler-plugin</artifactId>
+           <version>3.1</version>
+           <configuration>
+             <source>1.6</source>
+             <target>1.6</target>
+           </configuration>
+          </plugin>
+        </plugins>
+      </pluginManagement>
+    </build>
     <parent>
         <groupId>org.alfresco.maven</groupId>
         <artifactId>alfresco-sdk-parent</artifactId>
